@@ -1,14 +1,15 @@
 //jshint esversion:8
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 
 const app = express();
-// let items = [];
-// let workItems = [];
 
-mongoose.connect('mongodb+srv://admin-jamiu:hyperjay@cluster0.hzvuy.mongodb.net/todolistDB', {
+const password = process.env.DBPASSWORD;
+
+mongoose.connect(`mongodb+srv://admin-jamiu:${password}@cluster0.hzvuy.mongodb.net/todolistDB`, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false
